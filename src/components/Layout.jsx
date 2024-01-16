@@ -1,11 +1,12 @@
 import NavPage from "./NavPage";
+import Footer from "./Footer";
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   return (
     <div>
-        <NavPage />
-        {children}
-        <div className="w-full h-64 bg-red-500" />
+      <NavPage />
+      {children}
+      <Footer />
     </div>
-  )
+  );
 }

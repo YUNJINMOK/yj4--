@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function TrendingPage() {
   const [lists, setLists] = useState([]);
-  console.log(lists);
+  const [isLoading, setIsLoading] = useState();
 
   let tabs = [
     { id: "all", label: "All" },
@@ -25,13 +25,14 @@ export default function TrendingPage() {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZGE2YjA1MDkzYzU3NTZjYjdjZTY5MjE2ZjE2NTI2YyIsInN1YiI6IjVlY2NiODQ2MDIxY2VlMDAyMThhNmNkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.O8NTSQ3WbjEipLHuOyR1hqkz2NSJCB-IP_4Q5M0hSsE",
       },
     };
-
+    setIsLoading(true);
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
         setLists(json?.results.slice(0, 7));
       })
       .catch((err) => console.error("error:" + err));
+    setIsLoading(false);
   }, [activeTab]);
 
   return (
