@@ -10,7 +10,7 @@ export default function TrendingPage() {
   const [isLoding, setIsLoding] = useState();
   let tabs = [
     { id: "all", label: "All" },
-    { id: "moive", label: "Movies" },
+    { id: "movie  ", label: "Movies" },
     { id: "person", label: "People" },
     { id: "tv", label: "TV" },
   ];
@@ -28,14 +28,18 @@ export default function TrendingPage() {
     };
 
     setIsLoding(true);
+
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
+        console.log(json);
         setLists(json?.results.slice(0, 7));
         setData(json.results);
       })
-      .catch((err) => console.error("error:" + err));
-    setIsLoding(false);
+      .catch((err) => console.error("error:" + err))
+      .finally(() => {
+        setIsLoding(false);
+      });
   }, [activeTab]);
   return (
     <div className="w-[full] flex justify-center">

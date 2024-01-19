@@ -10,7 +10,9 @@ export default function Item({ list }) {
         <div className="w-full h-[250px]">
           <img
             className="w-full h-full object-cover"
-            src={`https://image.tmdb.org/t/p/w400${list.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w400${
+              list.poster_path ? list.poster_path : list.backdrop_path
+            }`}
             alt=""
           />
         </div>
