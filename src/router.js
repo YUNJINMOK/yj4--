@@ -5,6 +5,7 @@ import Movies from "./routes/Movies";
 import TV from "./routes/TV";
 import Detail from "./routes/Detail";
 import Search from "./routes/Search";
+import Chakra from "./routes/Chakra";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "/chakra",
+        element: <Chakra />,
       },
     ],
   },

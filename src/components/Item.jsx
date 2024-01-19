@@ -20,7 +20,7 @@ export default function Item({ list }) {
         {/* Content */}
         <div className="relative w-fill h-[90px] pt-4 px-2">
           <h2 className="font-semibold">
-            {list.title ? list.tile : list.name.substr(1, 20)}
+            {list.title ? list.title : list.name}
           </h2>
           <p className="text-sm">
             {list.release_date ? list.release_date : list.first_air_date}
